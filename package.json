@@ -1,5 +1,5 @@
 {
-  "name": "neddle-kit",
+  "name": "needle-kit",
   "version": "0.0.1",
   "description": "Arya's needle, little but powerful.",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/magicdawn/neddle-kit.git"
+    "url": "git+https://github.com/magicdawn/needle-kit.git"
   },
   "keywords": [
     "needle",
@@ -17,9 +17,9 @@
   "author": "magicdawn",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/magicdawn/neddle-kit/issues"
+    "url": "https://github.com/magicdawn/needle-kit/issues"
   },
-  "homepage": "https://github.com/magicdawn/neddle-kit#readme",
+  "homepage": "https://github.com/magicdawn/needle-kit",
   "dependencies": {
     "bluebird": "^2.9.34",
     "co": "^4.6.0"
