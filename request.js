@@ -7,5 +7,5 @@ module.exports = require('superagent');
 // promise()
 require('superagent-bluebird-promise');
 
-// charset
+// charset()
 require('superagent-charset');
