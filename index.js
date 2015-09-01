@@ -1,4 +1,4 @@
-var kit = exports = module.exports;
+var kit = module.exports;
 
 /**
  * bootstrap the kit
