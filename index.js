@@ -1,9 +1,17 @@
 var kit = module.exports;
 
 /**
- * bootstrap the kit
+ * bootstrap
+ * 
+ * Promise & co
  */
-require('./bootstrap');
+var Promise = kit.Promise = global.Promise = require('bluebird');
+var co = kit.co = require('co');
+
+/**
+ * Promise related
+ */
+kit.fs = require('./fs');
 
 /**
  * load superagent related
