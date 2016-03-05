@@ -21,10 +21,13 @@
   },
   "homepage": "https://github.com/magicdawn/needle-kit",
   "dependencies": {
-    "bluebird": "^2.9.34",
+    "bluebird": "^3.3.3",
     "co": "^4.6.0",
-    "superagent": "^1.4.0",
-    "superagent-bluebird-promise": "^2.1.0",
-    "superagent-charset": "0.0.2"
+    "fs-extra": "^0.26.5",
+    "superagent": "^1.7.2",
+    "superagent-charset": "^0.1.2"
+  },
+  "devDependencies": {
+    "eslint": "^2.3.0"
   }
 }

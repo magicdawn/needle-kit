@@ -1,12 +1,13 @@
-var kit = module.exports;
+'use strict';
+const kit = module.exports;
 
 /**
  * bootstrap
- * 
+ *
  * Promise & co
  */
-var Promise = kit.Promise = global.Promise = require('bluebird');
-var co = kit.co = require('co');
+const Promise = kit.Promise = require('bluebird');
+const co = kit.co = require('co');
 
 /**
  * Promise related

@@ -1,31 +1,23 @@
 # needle-kit
 ![needle](http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=46849369)
 
-
-
 ## modules
 ```js
-var needle = require('needle-kit');
+var kit = require('needle-kit');
 ```
 
-### basic tools
+### lib
+- kit.co = co
+- kit.Promise = bluebird
 
-```js
-needle.bootstrap();
-```
-- glonal.Promise = require('blebird');
-- needle.co = require('co'); // peerDependencies
+### fs
+- kit.fs = fs-extra
+- with `existsAsync`, promisified via `exists`
 
-
-### superagent related
-
-```js
-var request = needle.request;
-```
-
-- superagent
-- superagent-bluebird-promise
-- superagent-charset
+### request
+- kit.request = superagent
+- with `charset()`
+- with `endAsync()`, promisified via `end`
 
 ## License
 MIT http://magicdawn.mit-license.org

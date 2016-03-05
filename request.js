@@ -1,11 +1,14 @@
-/**
- * superagent related
- */
+'use strict';
 
-module.exports = require('superagent');
+const Promise = require('bluebird');
+const superagent = require('superagent');
+const Request = superagent.Request;
 
-// promise()
-require('superagent-bluebird-promise');
+// endAsync
+Request.prototype.endAsync = Promise.promisify(Request.prototype.end);
 
 // charset()
 require('superagent-charset');
+
+// exports
+module.exports = superagent;

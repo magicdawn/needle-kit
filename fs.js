@@ -1,10 +1,12 @@
+'use strict';
+
 /**
  * module dependencies
  */
-var Promise = require('bluebird');
+const Promise = require('bluebird');
 
-// use Promise
-var fs = module.exports = Promise.promisifyAll(require('fs'));
+// promisify
+const fs = Promise.promisifyAll(require('fs-extra'));
 
 // patch
 fs.existsAsync = function(p) {
@@ -13,4 +15,4 @@ fs.existsAsync = function(p) {
   });
 };
 
-// fse ?
+module.exports = fs;
