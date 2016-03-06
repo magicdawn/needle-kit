@@ -7,8 +7,8 @@ const Request = superagent.Request;
 // endAsync
 Request.prototype.endAsync = Promise.promisify(Request.prototype.end);
 
-// charset()
-require('superagent-charset');
+// add charset()
+require('superagent-charset')(superagent);
 
 // exports
 module.exports = superagent;
