@@ -1,5 +1,8 @@
 # Changelog
 
+## 2016-03-09 v1.2.0
+- update `promise.ify`, include bug fix
+
 ## 2016-03-09 v1.1.0
 - instead `bluebird` with native Promise, and use `promise.ify`
 - remove co
