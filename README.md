@@ -6,10 +6,6 @@
 var kit = require('needle-kit');
 ```
 
-### lib
-- kit.co = co
-- kit.Promise = bluebird
-
 ### fs
 - kit.fs = fs-extra
 - with `existsAsync`, promisified via `exists`
