@@ -1,6 +1,6 @@
 {
   "name": "needle-kit",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Arya's needle, little but powerful.",
   "main": "index.js",
   "scripts": {
