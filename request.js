@@ -1,11 +1,11 @@
 'use strict';
 
-const Promise = require('bluebird');
 const superagent = require('superagent');
 const Request = superagent.Request;
+const promiseify = require('promise.ify');
 
 // endAsync
-Request.prototype.endAsync = Promise.promisify(Request.prototype.end);
+Request.prototype.endAsync = promiseify(Request.prototype.end);
 
 // add charset()
 require('superagent-charset')(superagent);

@@ -3,10 +3,10 @@
 /**
  * module dependencies
  */
-const Promise = require('bluebird');
+const promiseify = require('promise.ify');
 
 // promisify
-const fs = Promise.promisifyAll(require('fs-extra'));
+const fs = promiseify.all(require('fs-extra'));
 
 // patch
 fs.existsAsync = function(p) {
