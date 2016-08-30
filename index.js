@@ -1,12 +1,8 @@
 'use strict';
 const kit = module.exports;
 
-/**
- * Promise related
- */
+// fs-extra
 kit.fs = require('./fs');
 
-/**
- * load superagent related
- */
+// superagent
 kit.request = require('./request');

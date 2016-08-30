@@ -1,12 +1,11 @@
 'use strict';
 
 /**
- * module dependencies
+ * Module dependencies
  */
-const promiseify = require('promise.ify');
 
-// promisify
-const fs = promiseify.all(require('fs-extra'));
+const pify = require('promise.ify');
+const fs = pify.all(require('fs-extra'));
 
 // patch
 fs.existsAsync = function(p) {

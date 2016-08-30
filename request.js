@@ -1,11 +1,11 @@
 'use strict';
 
-const superagent = require('superagent');
-const Request = superagent.Request;
-const promiseify = require('promise.ify');
+/**
+ * Module dependencies
+ */
 
-// endAsync
-Request.prototype.endAsync = promiseify(Request.prototype.end);
+const superagent = require('superagent');
+const pify = require('promise.ify');
 
 // add charset()
 require('superagent-charset')(superagent);
