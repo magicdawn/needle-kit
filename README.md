@@ -7,13 +7,12 @@ var kit = require('needle-kit');
 ```
 
 ### fs
-- kit.fs = fs-extra
+- `kit.fs = fs-extra`
 - with `existsAsync`, promisified via `exists`
 
 ### request
-- kit.request = superagent
+- `kit.request = superagent`
 - with `charset()`
-- with `endAsync()`, promisified via `end`
 
 ## License
 MIT http://magicdawn.mit-license.org

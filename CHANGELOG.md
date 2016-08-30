@@ -1,5 +1,8 @@
 # Changelog
 
+## 2016-08-30 v2.0.0
+- rm `req.endAsync`
+
 ## 2016-03-09 v1.2.0
 - update `promise.ify`, include bug fix
 
