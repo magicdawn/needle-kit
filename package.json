@@ -21,9 +21,9 @@
   },
   "homepage": "https://github.com/magicdawn/needle-kit",
   "dependencies": {
-    "fs-extra": "^0.30.0",
+    "fs-extra": "^2.1.2",
     "promise.ify": "^0.3.0",
-    "superagent": "^2.2.0",
+    "superagent": "^3.5.2",
     "superagent-charset": "^1.1.1"
   },
   "devDependencies": {
