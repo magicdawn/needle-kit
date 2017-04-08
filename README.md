@@ -1,4 +1,6 @@
 # needle-kit
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/magicdawn/needle-kit.svg)](https://greenkeeper.io/)
 ![needle](http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=46849369)
 
 ## modules
