@@ -1,40 +1,19 @@
 # root
 root: true
+parser: '@typescript-eslint/parser'
+plugins: ['@typescript-eslint']
 
-# code env
 env:
-  node: true
   mocha: true
-  es6: true
+  node: true
 
-# rules
+extends:
+  - 'eslint:recommended'
+  - 'plugin:@typescript-eslint/recommended'
+  - 'prettier'
+
 rules:
-  # basic
-  semi: [error, always]
-  quotes: [error, single]
-  eqeqeq: error
-  camelcase: error
-  radix: error
-  yoda: error
-  no-var: error
-  no-const-assign: error
-  strict: [error, global]
-  comma-dangle: [error, only-multiline]
-
-  # indent
-  indent: [error, 2, { SwitchCase: 1 }]
-
-  # brace
-  curly: [error, multi-line]
-  brace-style: error
-
-  # disable default
-  no-unused-vars: off
-  no-console: off
-  no-unreachable: off
-  require-yield: off
-
-parserOptions:
-  ecmaVersion: 6
-
-extends: 'eslint:recommended'
+  '@typescript-eslint/ban-ts-comment': off
+  '@typescript-eslint/no-unused-vars': off
+  '@typescript-eslint/no-non-null-assertion': off
+  '@typescript-eslint/no-empty-function': off
