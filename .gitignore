@@ -12,3 +12,10 @@ coverage.*
 # ts
 **/*.tsbuildinfo
 dist
+
+
+test/fixtures/symlink/**
+
+
+# keep all .gitkeep
+!**/*.gitkeep

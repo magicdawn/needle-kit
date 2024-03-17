@@ -17,7 +17,7 @@ import untildify from 'untildify'
 export function lnsfSafe(
   target: string,
   path: string,
-  { onExistingFile = 'throw' }: { onExistingFile?: 'delete' | 'throw' } = {}
+  { onExistingFile = 'throw' }: { onExistingFile?: 'delete' | 'throw' } = {},
 ) {
   if (path.startsWith('~')) {
     path = untildify(path)
@@ -33,17 +33,22 @@ export function lnsfSafe(
   }
 
   const stat = fse.lstatSync(path)
-  if (!stat.isSymbolicLink()) {
+  const isSymlink = stat.isSymbolicLink()
+
+  if (isSymlink) {
+    fse.rmSync(path)
+  }
+  // normal file
+  else {
     if (onExistingFile === 'delete') {
       fse.rmSync(path)
     } else {
       throw new Error(
-        `path (${path}) in \`symlink(target,path)\` exists, it's a normal file(none symlink)`
+        `path (${path}) in \`symlink(target,path)\` exists, it's a normal file(none symlink)`,
       )
     }
   }
 
-  fse.unlinkSync(path)
   fse.symlinkSync(target, path)
 }
 
