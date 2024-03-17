@@ -1,5 +1,9 @@
 # Changelog
 
+## 2024-03-17 v3.0.1
+
+- add tests, pass tests
+
 ## 2024-03-06 v3.0.0
 
 - rm previous content
