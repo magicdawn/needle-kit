@@ -2,3 +2,5 @@ node_modules
 
 lib
 dist
+
+auto-imports.d.ts

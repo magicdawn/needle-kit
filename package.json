@@ -25,7 +25,7 @@
     "test-cover": "vitest run --coverage",
     "dev": "tsup --watch",
     "build": "tsup",
-    "prepublishOnly": "pnpm build"
+    "prepublishOnly": "pnpm test && pnpm build"
   },
   "repository": {
     "type": "git",
