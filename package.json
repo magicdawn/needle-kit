@@ -2,6 +2,8 @@
   "name": "needle-kit",
   "version": "3.0.1",
   "description": "Arya's needle, little but powerful.",
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.cts",
   "type": "module",
   "files": [
     "dist/",
