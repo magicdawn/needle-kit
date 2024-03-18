@@ -1,5 +1,9 @@
 # Changelog
 
+## 2024-03-19 v3.1.0
+
+- turn to async to fix broken cjs build
+
 ## 2024-03-19 v3.0.2
 
 - add package.json `main` & `types` field for used in cjs env like nestjs.

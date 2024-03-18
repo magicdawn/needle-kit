@@ -1,6 +1,6 @@
-import fse from 'fs-extra'
+import { ensureDir } from 'fs-extra'
+import { lstat, rm, symlink } from 'fs/promises'
 import { dirname } from 'path'
-import untildify from 'untildify'
 
 /**
  * `ln -sf`, but safe
@@ -14,34 +14,36 @@ import untildify from 'untildify'
  * - `path` support tilde(~)
  */
 
-export function lnsfSafe(
+export async function lnsfSafe(
   target: string,
   path: string,
   { onExistingFile = 'throw' }: { onExistingFile?: 'delete' | 'throw' } = {},
 ) {
   if (path.startsWith('~')) {
+    // pure esm module, if not using dynamic import, cjs build brokes
+    const { default: untildify } = await import('untildify')
     path = untildify(path)
   }
 
   // dir
-  fse.ensureDirSync(dirname(path))
+  await ensureDir(dirname(path))
 
   // not exists
-  if (!symlinkExists(path)) {
-    fse.symlinkSync(target, path)
+  if (!(await symlinkExists(path))) {
+    await symlink(target, path)
     return
   }
 
-  const stat = fse.lstatSync(path)
+  const stat = await lstat(path)
   const isSymlink = stat.isSymbolicLink()
 
   if (isSymlink) {
-    fse.rmSync(path)
+    await rm(path)
   }
   // normal file
   else {
     if (onExistingFile === 'delete') {
-      fse.rmSync(path)
+      await rm(path)
     } else {
       throw new Error(
         `path (${path}) in \`symlink(target,path)\` exists, it's a normal file(none symlink)`,
@@ -49,12 +51,12 @@ export function lnsfSafe(
     }
   }
 
-  fse.symlinkSync(target, path)
+  await symlink(target, path)
 }
 
-export function symlinkExists(symlinkPath: string) {
+export async function symlinkExists(symlinkPath: string) {
   try {
-    fse.lstatSync(symlinkPath)
+    await lstat(symlinkPath)
   } catch (e) {
     return false
   }

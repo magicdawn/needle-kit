@@ -12,9 +12,9 @@ describe('symlink', () => {
     fse.removeSync(_path)
 
     // first create is ok
-    lnsfSafe(target, _path)
+    await lnsfSafe(target, _path)
     // second overwrite is ok
-    lnsfSafe(target, _path)
+    await lnsfSafe(target, _path)
   })
 
   it('lnsfSafe on a normal file', async () => {
@@ -24,10 +24,12 @@ describe('symlink', () => {
     await hfs.write(_path, 'hello world')
 
     // should throw error
-    expect(() => lnsfSafe(target, _path)).toThrowError(/normal file/)
-    expect(() => lnsfSafe(target, _path, { onExistingFile: 'throw' })).toThrowError(/normal file/)
+    expect(() => lnsfSafe(target, _path)).rejects.toThrowError(/normal file/)
+    expect(() => lnsfSafe(target, _path, { onExistingFile: 'throw' })).rejects.toThrowError(
+      /normal file/,
+    )
 
     // should overwrite
-    lnsfSafe(target, _path, { onExistingFile: 'delete' })
+    await lnsfSafe(target, _path, { onExistingFile: 'delete' })
   })
 })
