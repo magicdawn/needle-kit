@@ -33,11 +33,16 @@ describe('symlink', () => {
     await lnsfSafe(target, _path, { onExistingFile: 'delete' })
   })
 
-  it('supports ~ in _path', async () => {
-    const _pathPart = 'tmp/__needle-kit-tests/test.txt'
+  it('supports ~ in _path', async ({ skip }) => {
+    if (!process.env.CI) {
+      return skip()
+    }
+
+    const dir = '__tmp_needle-kit-tests__'
+    const _pathPart = `${dir}/test.txt`
     await lnsfSafe(__filename, `~/${_pathPart}`)
 
     // clean up
-    fse.removeSync(path.join(homedir(), _pathPart))
+    fse.removeSync(path.join(homedir(), dir))
   })
 })
