@@ -1,6 +1,6 @@
-import { hfs } from '@humanfs/node'
 import fse from 'fs-extra'
-import { basename, join } from 'path'
+import { homedir } from 'os'
+import path, { basename, join } from 'path'
 import { lnsfSafe } from './symlink'
 
 describe('symlink', () => {
@@ -21,7 +21,7 @@ describe('symlink', () => {
     // remove _path
     fse.removeSync(_path)
     // nornal file
-    await hfs.write(_path, 'hello world')
+    fse.outputFileSync(_path, 'hello world')
 
     // should throw error
     expect(() => lnsfSafe(target, _path)).rejects.toThrowError(/normal file/)
@@ -31,5 +31,13 @@ describe('symlink', () => {
 
     // should overwrite
     await lnsfSafe(target, _path, { onExistingFile: 'delete' })
+  })
+
+  it('supports ~ in _path', async () => {
+    const _pathPart = 'tmp/__needle-kit-tests/test.txt'
+    await lnsfSafe(__filename, `~/${_pathPart}`)
+
+    // clean up
+    fse.removeSync(path.join(homedir(), _pathPart))
   })
 })
