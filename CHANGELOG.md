@@ -1,5 +1,9 @@
 # Changelog
 
+## 2024-03-19 v3.2.0
+
+- feat: add `searchDirUp`
+
 ## 2024-03-19 v3.1.0
 
 - turn to async to fix broken cjs build
