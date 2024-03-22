@@ -1,6 +1,10 @@
 # Changelog
 
-## 2024-03-19 v3.2.0
+## 2024-03-22 v3.2.1
+
+- rename to `searchDirUp`, prev version not relased as `searchDirUp`
+
+## 2024-03-22 v3.2.0
 
 - feat: add `searchDirUp`
 

@@ -1,4 +1,4 @@
-export function searchUpDir(currentPath: string, searchName: string) {
+export function searchDirUp(currentPath: string, searchName: string) {
   const parts = currentPath.split('/')
 
   if (!parts.includes(searchName)) {

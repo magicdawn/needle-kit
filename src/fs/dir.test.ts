@@ -1,7 +1,7 @@
-import { searchUpDir } from './dir'
+import { searchDirUp } from './dir'
 
 test('getAncestorDir', () => {
-  const fn = searchUpDir
+  const fn = searchDirUp
   expect(fn('/a/b/c/d', 'b')).toBe('/a/b')
   expect(fn('/a/b/c/d', 'a')).toBe('/a')
   expect(fn('/a/b/c/d', 'c')).toBe('/a/b/c')
