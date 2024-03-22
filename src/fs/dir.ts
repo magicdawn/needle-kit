@@ -1,3 +1,7 @@
+/**
+ * search `searchName` in `currentPath`
+ * @example searchDirUp('/a/b/c/d', 'b') => '/a/b'
+ */
 export function searchDirUp(currentPath: string, searchName: string) {
   const parts = currentPath.split('/')
 
