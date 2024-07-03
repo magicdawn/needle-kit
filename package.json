@@ -1,6 +1,6 @@
 {
   "name": "needle-kit",
-  "version": "3.2.1",
+  "version": "3.3.0",
   "description": "Arya's needle, little but powerful.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
