@@ -1,2 +1,2 @@
-export * from './fs/dir'
-export * from './fs/symlink'
+export * from './fs'
+export * from './shell/index'
