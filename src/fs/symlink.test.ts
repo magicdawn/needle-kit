@@ -24,8 +24,8 @@ describe('symlink', () => {
     fse.outputFileSync(_path, 'hello world')
 
     // should throw error
-    expect(() => lnsfSafe(target, _path)).rejects.toThrowError(/normal file/)
-    expect(() => lnsfSafe(target, _path, { onExistingFile: 'throw' })).rejects.toThrowError(
+    await expect(() => lnsfSafe(target, _path)).rejects.toThrowError(/normal file/)
+    await expect(() => lnsfSafe(target, _path, { onExistingFile: 'throw' })).rejects.toThrowError(
       /normal file/,
     )
 
