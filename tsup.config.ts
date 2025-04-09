@@ -1,11 +1,11 @@
 import { defineConfig } from 'tsup'
 
-export default defineConfig((options) => {
+export default defineConfig(() => {
   return {
     entry: ['src/index.ts'],
-    format: ['cjs', 'esm'],
+    format: ['esm', 'cjs'],
     dts: true,
-    target: 'node16',
+    target: 'node20',
     clean: true,
     treeshake: { preset: 'recommended' },
     define: {

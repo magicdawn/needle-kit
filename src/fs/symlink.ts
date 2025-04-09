@@ -1,6 +1,7 @@
 import { ensureDir } from 'fs-extra'
 import { lstat, rm, symlink } from 'fs/promises'
 import { dirname } from 'path'
+import untildify from 'untildify'
 
 /**
  * `ln -sf`, but safe
@@ -20,8 +21,6 @@ export async function lnsfSafe(
   { onExistingFile = 'throw' }: { onExistingFile?: 'delete' | 'throw' } = {},
 ) {
   if (path.startsWith('~')) {
-    // pure esm module, if not using dynamic import, cjs build brokes
-    const { default: untildify } = await import('untildify')
     path = untildify(path)
   }
 
