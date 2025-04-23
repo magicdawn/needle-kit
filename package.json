@@ -1,6 +1,6 @@
 {
   "name": "needle-kit",
-  "version": "3.3.1",
+  "version": "3.4.0",
   "description": "Arya's needle, little but powerful.",
   "type": "module",
   "main": "dist/index.cjs",
