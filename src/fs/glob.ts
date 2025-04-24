@@ -7,7 +7,11 @@ export function customFinderSort(files: string[]) {
   return finderSort(files, { locale: 'zh-CN' })
 }
 
-export async function matchFromList(selected: string[], pattern: string | string[]) {
+export async function matchFromList(
+  selected: string[],
+  pattern: string | string[],
+  fgOptions?: Partial<fg.Options>,
+) {
   const queue: string[] = []
   for (const item of selected) {
     if (await isSymlink(item)) {
@@ -21,6 +25,7 @@ export async function matchFromList(selected: string[], pattern: string | string
         cwd: item,
         absolute: true,
         followSymbolicLinks: false,
+        ...fgOptions,
       })
       queue.push(...customFinderSort(files))
     }
