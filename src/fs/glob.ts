@@ -25,6 +25,7 @@ export async function matchFromList(
         cwd: item,
         absolute: true,
         followSymbolicLinks: false,
+        baseNameMatch: true,
         ...fgOptions,
       })
       queue.push(...customFinderSort(files))
