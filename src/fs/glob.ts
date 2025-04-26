@@ -12,6 +12,8 @@ export async function matchFromList(
   pattern: string | string[],
   fgOptions?: Partial<fg.Options>,
 ) {
+  const baseNameMatch = fgOptions?.baseNameMatch ?? true
+
   const queue: string[] = []
   for (const item of selected) {
     if (await isSymlink(item)) {
@@ -25,7 +27,7 @@ export async function matchFromList(
         cwd: item,
         absolute: true,
         followSymbolicLinks: false,
-        baseNameMatch: true,
+        baseNameMatch,
         ...fgOptions,
       })
       queue.push(...customFinderSort(files))
@@ -33,7 +35,7 @@ export async function matchFromList(
     // file
     else if (await isFile(item)) {
       // https://github.com/micromatch/micromatch/issues/9#issuecomment-1529612035
-      queue.push(...mm([item], pattern))
+      queue.push(...mm([item], pattern, { basename: baseNameMatch }))
     }
   }
 
