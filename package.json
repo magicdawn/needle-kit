@@ -46,7 +46,8 @@
     "dev": "tsup --watch",
     "build": "tsup",
     "prepublishOnly": "pnpm test && pnpm build",
-    "typeswrong": "attw --pack ."
+    "typeswrong": "attw --pack .",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@humanfs/node": "^0.16.6",

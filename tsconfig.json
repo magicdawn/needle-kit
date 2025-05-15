@@ -1,19 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "rootDir": "src",
-    "module": "ES2022",
+    "target": "ES2022", // as a Library, compatible with ES2022, 3 years ago
+    "module": "ESNext",
     "moduleResolution": "Bundler",
-    "resolveJsonModule": true,
     "types": ["node", "vitest/globals", "vitest/importMeta"],
+    "strict": true,
     "strictNullChecks": true,
-    "outDir": "lib",
+    "noImplicitOverride": true,
+    "noEmit": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*"],
-  "ts-node": {
-    "swc": true
-  }
+  "include": ["src/**/*"]
 }
