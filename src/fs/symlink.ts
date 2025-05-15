@@ -1,6 +1,6 @@
+import { lstat, rm, symlink } from 'node:fs/promises'
+import { dirname } from 'node:path'
 import { ensureDir } from 'fs-extra'
-import { lstat, rm, symlink } from 'fs/promises'
-import { dirname } from 'path'
 import untildify from 'untildify'
 
 /**
@@ -40,14 +40,10 @@ export async function lnsfSafe(
     await rm(path)
   }
   // normal file
-  else {
-    if (onExistingFile === 'delete') {
-      await rm(path)
-    } else {
-      throw new Error(
-        `path (${path}) in \`symlink(target,path)\` exists, it's a normal file(none symlink)`,
-      )
-    }
+  else if (onExistingFile === 'delete') {
+    await rm(path)
+  } else {
+    throw new Error(`path (${path}) in \`symlink(target,path)\` exists, it's a normal file(none symlink)`)
   }
 
   await symlink(target, path)
@@ -56,7 +52,7 @@ export async function lnsfSafe(
 export async function symlinkExists(symlinkPath: string) {
   try {
     await lstat(symlinkPath)
-  } catch (e) {
+  } catch {
     return false
   }
   return true

@@ -1,11 +1,11 @@
+import { homedir } from 'node:os'
+import path, { basename, join } from 'node:path'
 import fse from 'fs-extra'
-import { homedir } from 'os'
-import path, { basename, join } from 'path'
 import { lnsfSafe } from './symlink'
 
 describe('symlink', () => {
   const target = import.meta.filename
-  const _path = join(import.meta.dirname, '../../test/fixtures/symlink/', basename(target) + '.txt')
+  const _path = join(import.meta.dirname, '../../test/fixtures/symlink/', `${basename(target)}.txt`)
 
   it('lnsfSafe', async () => {
     // remove _path first
@@ -25,9 +25,7 @@ describe('symlink', () => {
 
     // should throw error
     await expect(() => lnsfSafe(target, _path)).rejects.toThrowError(/normal file/)
-    await expect(() => lnsfSafe(target, _path, { onExistingFile: 'throw' })).rejects.toThrowError(
-      /normal file/,
-    )
+    await expect(() => lnsfSafe(target, _path, { onExistingFile: 'throw' })).rejects.toThrowError(/normal file/)
 
     // should overwrite
     await lnsfSafe(target, _path, { onExistingFile: 'delete' })

@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'node:path'
 
 export function transformFilename(
   file: string,
@@ -19,7 +19,7 @@ export function transformFilename(
   // ext
   if (newExt) {
     ext = newExt
-    if (!ext.startsWith('.')) ext = '.' + ext
+    if (!ext.startsWith('.')) ext = `.${ext}`
   }
 
   // base

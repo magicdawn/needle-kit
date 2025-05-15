@@ -1,7 +1,6 @@
 logs
 *.log
 .DS_Store
-
 npm-debug.log*
 node_modules
 
@@ -10,12 +9,6 @@ coverage
 coverage.*
 
 # ts
-**/*.tsbuildinfo
-dist
-
-
-test/fixtures/symlink/**
-
-
-# keep all .gitkeep
-!**/*.gitkeep
+*.tsbuildinfo
+dist/
+test/fixtures/symlink/

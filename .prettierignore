@@ -1,6 +1,1 @@
-node_modules
-
-lib
-dist
-
-auto-imports.d.ts
+# contents not in .gitignore
