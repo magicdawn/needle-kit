@@ -83,12 +83,14 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "@swc/core"
+      "@swc/core",
+      "esbuild",
+      "unrs-resolver"
     ]
   },
   "lint-staged": {
     "*": [
-      "eslint --fix",
+      "eslint --fix --no-warn-ignored",
       "prettier --write --ignore-unknown"
     ]
   }

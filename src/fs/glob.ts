@@ -7,12 +7,9 @@ export function customFinderSort(files: string[]) {
   return finderSort(files, { locale: 'zh-CN' })
 }
 
-export async function matchFromList(
-  selected: string[],
-  pattern: string | string[],
-  fgOptions?: Partial<fg.Options>,
-) {
-  const baseNameMatch = fgOptions?.baseNameMatch ?? true
+export async function matchFromList(selected: string[], pattern: string | string[], fgOptions?: Partial<fg.Options>) {
+  const hasSlash = [pattern].flat().some((p) => p.includes('/'))
+  const baseNameMatch = fgOptions?.baseNameMatch ?? !hasSlash
 
   const queue: string[] = []
   for (const item of selected) {
