@@ -1,16 +1,16 @@
 {
+  "include": ["src/**/*"],
   "compilerOptions": {
     "target": "ES2022", // as a Library, compatible with ES2022, 3 years ago
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "types": ["node", "vitest/globals", "vitest/importMeta"],
-    "strict": true,
-    "strictNullChecks": true,
-    "noImplicitOverride": true,
-    "noEmit": true,
-    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
-  },
-  "include": ["src/**/*"]
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "skipLibCheck": true,
+    "types": ["node", "vitest/globals", "vitest/importMeta"],
+    "strictNullChecks": true,
+    "noEmit": true
+  }
 }
