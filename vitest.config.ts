@@ -5,5 +5,8 @@ export default defineConfig({
     globals: true,
     // in source testing
     includeSource: ['src/**/*.{js,ts}'],
+    coverage: {
+      include: ['src/**/*.{js,ts}'],
+    },
   },
 })
