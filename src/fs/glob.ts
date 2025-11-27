@@ -7,12 +7,13 @@ export function customFinderSort(files: string[]) {
   return finderSort(files, { locale: 'zh-CN' })
 }
 
-export async function matchFromList(selected: string[], pattern: string | string[], fgOptions?: Partial<fg.Options>) {
+export async function matchFromList(list: string[], pattern: string | string[], fgOptions?: Partial<fg.Options>) {
   const hasSlash = [pattern].flat().some((p) => p.includes('/'))
   const baseNameMatch = fgOptions?.baseNameMatch ?? !hasSlash
+  const caseSensitive = fgOptions?.caseSensitiveMatch ?? true // default strict
 
   const queue: string[] = []
-  for (const item of selected) {
+  for (const item of list) {
     if (await isSymlink(item)) {
       continue
     }
@@ -20,10 +21,10 @@ export async function matchFromList(selected: string[], pattern: string | string
     // dir
     if (await isDirectory(item)) {
       const files = await fg(pattern, {
-        caseSensitiveMatch: true,
         cwd: item,
         absolute: true,
         followSymbolicLinks: false,
+        caseSensitiveMatch: caseSensitive,
         baseNameMatch,
         ...fgOptions,
       })
@@ -32,7 +33,7 @@ export async function matchFromList(selected: string[], pattern: string | string
     // file
     else if (await isFile(item)) {
       // https://github.com/micromatch/micromatch/issues/9#issuecomment-1529612035
-      queue.push(...mm([item], pattern, { basename: baseNameMatch }))
+      queue.push(...mm([item], pattern, { basename: baseNameMatch, nocase: !caseSensitive }))
     }
   }
 
