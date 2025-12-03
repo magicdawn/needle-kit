@@ -7,6 +7,7 @@ export default defineConfig({
   target: 'node20',
   clean: true,
   treeshake: true,
+  fixedExtension: false,
   define: {
     'import.meta.vitest': 'undefined',
   },
