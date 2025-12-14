@@ -34,5 +34,6 @@ if (import.meta.vitest) {
   test('transformFilename', () => {
     expect(transformFilename('a.txt', { baseSuffix: '-b' })).toBe('a-b.txt')
     expect(transformFilename('a.txt', { baseSuffix: '-b', newExt: '.js' })).toBe('a-b.js')
+    expect(transformFilename('/a/b/c/d.txt', { baseSuffix: '-e', newExt: '.js' })).toBe('/a/b/c/d-e.js')
   })
 }
