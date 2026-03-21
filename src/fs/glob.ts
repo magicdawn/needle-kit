@@ -1,3 +1,4 @@
+import path from 'node:path'
 import { finderSort } from '@magicdawn/finder-sort'
 import fg from 'fast-glob'
 import mm from 'micromatch'
@@ -11,6 +12,7 @@ export async function matchFromList(list: string[], pattern: string | string[], 
   const hasSlash = [pattern].flat().some((p) => p.includes('/'))
   const baseNameMatch = fgOptions?.baseNameMatch ?? !hasSlash
   const caseSensitive = fgOptions?.caseSensitiveMatch ?? true // default strict
+  list = list.map((x) => path.resolve(x))
 
   const queue: string[] = []
   for (const item of list) {
@@ -23,6 +25,7 @@ export async function matchFromList(list: string[], pattern: string | string[], 
       const files = await fg(pattern, {
         cwd: item,
         absolute: true,
+        onlyFiles: true,
         followSymbolicLinks: false,
         caseSensitiveMatch: caseSensitive,
         baseNameMatch,
