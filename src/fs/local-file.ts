@@ -14,7 +14,8 @@ export class LocalFile {
   public ext: string
 
   public constructor(public filePath: string) {
-    this.filePath = path.resolve(filePath)
+    // macOS using `近似NFD`, 统一使用 NFC (忽略时默认 NFC)
+    this.filePath = path.resolve(filePath).normalize()
 
     const file = this.filePath
     this.dir = path.dirname(file)
