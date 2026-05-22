@@ -1,4 +1,6 @@
+# for ncu; pnpm default; pnpm does need this
 allowBuilds:
   '@swc/core': true
   esbuild: true
   unrs-resolver: true
+minimumReleaseAge: 1440
