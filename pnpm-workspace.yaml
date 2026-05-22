@@ -3,5 +3,5 @@ allowBuilds:
   esbuild: true
   unrs-resolver: true
 
-# for ncu; pnpm default; pnpm does need this
+# for ncu; pnpm default; pnpm does not need this
 minimumReleaseAge: 1440
