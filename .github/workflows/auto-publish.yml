@@ -3,7 +3,7 @@
 # 3. npm publish
 # 4. sync tag -> release, add changelog
 
-name: Auto-Publish
+name: auto-publish
 
 permissions:
   id-token: write # Required for OIDC
@@ -19,7 +19,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  sync-tag-to-release:
+  auto-publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
