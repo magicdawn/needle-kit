@@ -37,3 +37,5 @@ jobs:
       - run: pnpx changeloggithub@0
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - run: pnpx npm-sync-taobao needle-kit
