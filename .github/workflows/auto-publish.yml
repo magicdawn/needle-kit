@@ -1,6 +1,12 @@
-name: SyncTagToRelease
+# 1. tag local
+# 2. push tag to github
+# 3. npm publish
+# 4. sync tag -> release, add changelog
+
+name: Auto-Publish
 
 permissions:
+  id-token: write # Required for OIDC
   contents: write
 
 on:
@@ -25,9 +31,9 @@ jobs:
           node-version: lts/*
           cache: pnpm
 
-      # 1. publish local
-      # 2. push tag to github
-      # 3. sync tag -> release, add changelog
+      - name: npm publish
+        run: npm publish --access public
+
       - run: pnpx changeloggithub@0
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

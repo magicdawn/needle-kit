@@ -2,7 +2,7 @@
   "name": "needle-kit",
   "type": "module",
   "version": "3.7.0",
-  "packageManager": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8",
+  "packageManager": "pnpm@11.2.2+sha512.36e6621fad506178936455e70247b8808ef4ec25797a9f437a93281a020484e2607f6a469a22e982987c3dbb8866e3071514ab10a4a1749e06edcd1ec118436f",
   "description": "Arya's needle, little but powerful.",
   "author": "magicdawn",
   "license": "MIT",
@@ -48,46 +48,42 @@
     "test-cover": "vitest run --coverage",
     "dev": "tsdown --watch",
     "build": "tsdown",
-    "prepublishOnly": "pnpm test && pnpm build",
+    "prepublishOnly": "pnpm typecheck && pnpm test && pnpm build",
     "typeswrong": "attw --pack .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsgo --noEmit"
   },
   "dependencies": {
     "@humanfs/node": "^0.16.8",
     "@magicdawn/finder-sort": "^0.4.0",
     "fast-glob": "^3.3.3",
-    "fs-extra": "^11.3.4",
+    "fs-extra": "^11.3.5",
     "memoize": "^11.0.0",
     "micromatch": "^4.0.8",
+    "p-queue": "^9.3.0",
     "path-type": "^6.0.0",
     "shell-escape": "^0.2.0",
-    "untildify": "^6.0.0"
+    "untildify": "^6.0.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@magicdawn/eslint-config": "^1.6.5",
     "@magicdawn/prettier-config": "^0.1.0",
     "@types/fs-extra": "^11.0.4",
     "@types/micromatch": "^4.0.10",
-    "@types/node": "^25.6.0",
+    "@types/node": "^25.9.1",
     "@types/shell-escape": "^0.2.3",
-    "@typescript-eslint/eslint-plugin": "^8.59.0",
-    "@typescript-eslint/parser": "^8.59.0",
-    "@vitest/coverage-v8": "^4.1.5",
-    "eslint": "^10.2.1",
+    "@typescript-eslint/eslint-plugin": "^8.59.4",
+    "@typescript-eslint/parser": "^8.59.4",
+    "@typescript/native-preview": "7.0.0-dev.20260521.1",
+    "@vitest/coverage-v8": "^4.1.7",
+    "eslint": "^10.4.0",
     "eslint-config-prettier": "^10.1.8",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
     "prettier": "^3.8.3",
-    "tsdown": "^0.21.10",
+    "tsdown": "^0.22.0",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.5"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@swc/core",
-      "esbuild",
-      "unrs-resolver"
-    ]
+    "vitest": "^4.1.7"
   },
   "lint-staged": {
     "*": [
